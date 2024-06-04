@@ -17,7 +17,6 @@ public class MintPlayerContext : IdentityDbContext<User, Role, Guid>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=TestDatabase;Trusted_Connection=True;MultipleActiveResultSets=true;ConnectRetryCount=0");
         var connectionstring = configuration.GetConnectionString("Application");
         optionsBuilder.UseSqlServer(connectionstring);
         //optionsBuilder.UseInMemoryDatabase("Application");
